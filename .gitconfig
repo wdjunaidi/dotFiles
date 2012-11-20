@@ -1,0 +1,9 @@
+[user]
+	name = Wirianto Djunaidi
+	email = wirianto.djunaidi@gmail.com
+[alias]
+	co = checkout
+[core]
+	editor = vim -f
+[color]
+	ui = true
