@@ -14,7 +14,7 @@ function _git_prompt() {
       # Detached HEAD. (branch=HEAD is a faster alternative.)
       branch="(`git describe --all --contain --abbrev=4 HEAD 2> /dev/null || echo HEAD`)"
     fi
-    echo -n '\[\033[0;37;'"$ansi"';1m\]'"$branch"'\[\033[0m\]'
+    echo -n '\[\033[0;37;'"$ansi"';1m\]'"(git-branch: $branch)"'\[\033[0m\]'
   fi
 }
 
