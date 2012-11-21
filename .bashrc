@@ -53,8 +53,21 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+# local color variables
+local BLUE="\[\033[0;34m\]"
+local LIGHT_BLUE="\[\033[1;34m\]"
+local RED="\[\033[0;31m\]"
+local LIGHT_RED="\[\033[1;31m\]"
+local GREEN="\[\033[0;32m\]"
+local LIGHT_GREEN="\[\033[1;32m\]"
+local WHITE="\[\033[1;37m\]"
+local LIGHT_GRAY="\[\033[0;37m\]"
+local RESET_COLOR="\[\033[00m\]"
+
+source .bash_scripts/git-prompt.sh
+
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;34m\]\n\w\[\033[00m\]\n\[\033[01;32m\]\u@\h\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}$LIGHT_BLUE\n\w$RESET_COLOR\n$LIGHT_GREEN\u@\h$RESET_COLOR\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\n\w\n\u@\h\$ '
 fi
@@ -109,3 +122,6 @@ fi
 export PATH=/home/wirianto/Programs/sbt/bin:$PATH
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+source .bash_scripts/nailgun.sh
+source .bash_scripts/git-prompt.sh
