@@ -112,5 +112,5 @@ export PATH=/home/wirianto/Programs/sbt/bin:$PATH
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-source .bash_scripts/nailgun.sh
-source .bash_scripts/git-prompt.sh
+source ~/.bash_scripts/nailgun.sh
+source ~/.bash_scripts/git-prompt.sh
