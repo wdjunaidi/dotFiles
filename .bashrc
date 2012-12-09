@@ -108,7 +108,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-export PATH=/home/wirianto/Programs/sbt/bin:$PATH
+export PATH=$PATH:/home/wirianto/bin
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
