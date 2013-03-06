@@ -38,3 +38,11 @@ set virtualedit=block
 call pathogen#infect()
 syntax on
 filetype plugin indent on
+
+if $COLORTERM=='gnome-terminal'
+  set term=gnome-256color
+endif
+
+map <F2> <Esc>:NERDTreeToggle<CR> "Toggle the file browser
+map <A-F1> <Esc>:NERDTreeFind<CR> "Find the current file in the file browser
+cabbr <expr> %% expand('%:p:h')
