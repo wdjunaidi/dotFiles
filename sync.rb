@@ -18,6 +18,6 @@ def syncList(parent, list)
   end
 end
 
-IGNORED = [ '.', '..', '.git', '.gitignore', '.gitconfig', 'sync.rb' ]
+IGNORED = [ '.', '..', '.git', '.gitignore', '.gitconfig', 'sync.rb' , '.vim/bundle/bundle.list' ]
 list = Dir.entries('.') - IGNORED
 syncList('.', list)

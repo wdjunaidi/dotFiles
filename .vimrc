@@ -1,4 +1,4 @@
-colorscheme vividchalk
+colorscheme oceandeep
 
 set nocompatible
 " Show all available options when navigating
@@ -35,7 +35,7 @@ if v:version >= 700
 endif
 set virtualedit=block
 
-call pathogen#infect()
+execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
@@ -46,3 +46,7 @@ endif
 map <F2> <Esc>:NERDTreeToggle<CR> "Toggle the file browser
 map <A-F1> <Esc>:NERDTreeFind<CR> "Find the current file in the file browser
 cabbr <expr> %% expand('%:p:h')
+
+autocmd BufReadPost fugitive://* set bufhidden=delete
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
