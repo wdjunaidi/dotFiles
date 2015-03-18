@@ -56,14 +56,18 @@ Plugin 'tpope/vim-commentary'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'JulesWang/css.vim'
 
 call vundle#end()
 filetype plugin indent on
 
+if $COLORTERM=='gnome-terminal'
+  set term=xterm-256color
+endif
 syntax enable
-colorscheme solarized
 let g:solarized_termcolors=256
 set background=dark
+colorscheme solarized
 
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
 
@@ -83,11 +87,27 @@ noremap <silent> <C-F10> :TagbarOpen<CR>
 " }}}
 
 " Unite {{{
-nnoremap <c-f> :Unite file buffer<CR>
-nnoremap <c-b> :Unite buffer<CR>
+let g:unite_source_history_yank_enable = 1
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+nnoremap <c-f> :Unite -no-split file buffer<CR>
+nnoremap <c-b> :Unite -no-split buffer<CR>
 " }}}
 
+" Ragtag {{{
+let g:ragtag_global_maps = 1
+" }}}
 cabbr <expr> %% expand('%:p:h')
 nnoremap <silent> <esc> :noh<return><esc>
 nnoremap <silent> <C-N> :bn<CR>
 nnoremap <silent> <C-P> :bp<CR>
+
+map <silent> <C-k> :E<CR>
+let g:netrw_browse_split = 0
+let g:netrw_liststyle = 3
+
+if has("autocmd") && exists("+omnifunc")
+  autocmd FileType *
+      \ if &omnifunc == "" |
+      \    setlocal omnifunc=syntaxcomplete#Complete |
+      \ endif
+endif

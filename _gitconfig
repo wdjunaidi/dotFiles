@@ -1,0 +1,16 @@
+[user]
+  name = Wirianto Djunaidi
+  email = wirianto.djunaidi@gmail.com
+[alias]
+  co = checkout
+[core]
+  editor = vim -f
+  autocrlf = input
+  excludesfile = /home/wirianto/.config/git/ignore
+[color]
+  ui = true
+[push]
+	default = simple
+[credential]
+	helper = cache
+	help = cache --timeout=3600

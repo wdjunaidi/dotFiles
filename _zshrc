@@ -49,7 +49,7 @@ plugins=(git git-prompt git-extras npm)
 
 # User configuration
 
-export PATH="/Users/wd1358/.rbenv/shims:/usr/local/opt/nvm/v0.10.33/bin:/usr/local/bin:/Users/wd1358/.bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/lib/node_modules"
+export PATH="/home/wirianto/.rvm/gems/ruby-2.1.4/bin:/home/wirianto/.rvm/gems/ruby-2.1.4@global/bin:/home/wirianto/.rvm/rubies/ruby-2.1.4/bin:/home/wirianto/.gvm/vertx/current/bin:/home/wirianto/.gvm/springboot/current/bin:/home/wirianto/.gvm/lazybones/current/bin:/home/wirianto/.gvm/jbake/current/bin:/home/wirianto/.gvm/groovyserv/current/bin:/home/wirianto/.gvm/groovy/current/bin:/home/wirianto/.gvm/griffon/current/bin:/home/wirianto/.gvm/grails/current/bin:/home/wirianto/.gvm/gradle/current/bin:/home/wirianto/.gvm/glide/current/bin:/home/wirianto/.gvm/gaiden/current/bin:/home/wirianto/.gvm/crash/current/bin:/home/wirianto/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin:/home/wirianto/.rvm/bin:/home/wirianto/Programs/go/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -58,11 +58,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim'
-fi
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -79,5 +79,5 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias ls='ls -F'
-alias la='ls -aF'
+export NVM_DIR="/home/wirianto/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
