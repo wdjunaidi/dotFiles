@@ -54,9 +54,12 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'bling/vim-airline.git'
 Plugin 'tpope/vim-commentary'
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'pangloss/vim-javascript'
+Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'JulesWang/css.vim'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
 filetype plugin indent on
@@ -96,6 +99,12 @@ nnoremap <c-b> :Unite -no-split buffer<CR>
 " Ragtag {{{
 let g:ragtag_global_maps = 1
 " }}}
+
+" gitgutter {{{
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk
+" }}}
+
 cabbr <expr> %% expand('%:p:h')
 nnoremap <silent> <esc> :noh<return><esc>
 nnoremap <silent> <C-N> :bn<CR>
@@ -111,3 +120,5 @@ if has("autocmd") && exists("+omnifunc")
       \    setlocal omnifunc=syntaxcomplete#Complete |
       \ endif
 endif
+
+inoremap <silent> jk <ESC>
