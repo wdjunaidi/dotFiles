@@ -35,31 +35,28 @@ filetype off
 set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" Feature plugins
 Plugin 'gmarik/Vundle.vim'
 Plugin 'Shougo/vimproc'
 Plugin 'majutsushi/tagbar'
 Plugin 'marijnh/tern_for_vim'
-Plugin 'tpope/vim-ragtag'
 Plugin 'Shougo/unite.vim'
 Plugin 'moll/vim-node'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tfnico/vim-gradle'
-Plugin 'tpope/vim-endwise'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'tpope/vim-surround'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'mklabs/grunt'
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'bling/vim-airline.git'
 Plugin 'tpope/vim-commentary'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'pangloss/vim-javascript'
 Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'JulesWang/css.vim'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-endwise'
+
+" Language plugins
+Plugin 'sheerun/vim-polyglot'
 
 call vundle#end()
 filetype plugin indent on
@@ -92,12 +89,16 @@ noremap <silent> <C-F10> :TagbarOpen<CR>
 " Unite {{{
 let g:unite_source_history_yank_enable = 1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
-nnoremap <c-f> :Unite -no-split file buffer<CR>
-nnoremap <c-b> :Unite -no-split buffer<CR>
-" }}}
-
-" Ragtag {{{
-let g:ragtag_global_maps = 1
+let dot = '\%(^\|/\)\.'
+let dirs = '\%(^\|/\)\%(' . join(
+      \ ['node_modules', 'bower_components', 'dist'], '\|')
+      \ . '\)\%($\|/\)'
+let files = join(['\.beam\%($\)'], '\|')
+let pattern = join([dot, dirs, files], '\|')
+call unite#custom#source('file_rec', 'ignore_pattern', pattern)
+nnoremap <Leader>f :Unite -no-split file buffer<CR>
+nnoremap <Leader>fr :Unite -no-split -start-insert file_rec<CR>
+nnoremap <Leader>b :Unite -no-split buffer<CR>
 " }}}
 
 " gitgutter {{{

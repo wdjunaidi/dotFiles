@@ -6,7 +6,7 @@
 [core]
   editor = vim -f
   autocrlf = input
-  excludesfile = /home/wirianto/.config/git/ignore
+  excludesfile = /home/wirianto/.gitignore
 [color]
   ui = true
 [push]
