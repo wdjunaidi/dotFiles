@@ -89,15 +89,17 @@ noremap <silent> <C-F10> :TagbarOpen<CR>
 " Unite {{{
 let g:unite_source_history_yank_enable = 1
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+let g:unite_data_directory='~/.vim/cache/unite'
 let dot = '\%(^\|/\)\.'
 let dirs = '\%(^\|/\)\%(' . join(
       \ ['node_modules', 'bower_components', 'dist'], '\|')
       \ . '\)\%($\|/\)'
 let files = join(['\.beam\%($\)'], '\|')
 let pattern = join([dot, dirs, files], '\|')
-call unite#custom#source('file_rec', 'ignore_pattern', pattern)
-nnoremap <Leader>f :Unite -no-split file buffer<CR>
-nnoremap <Leader>fr :Unite -no-split -start-insert file_rec<CR>
+call unite#custom#source('file,file_rec,file_rec/async,file_rec/neovim,', 'ignore_pattern', pattern)
+nnoremap <Leader>f :UniteWithCurrentDir -no-split -start-insert file buffer<CR>
+nnoremap <Leader>fr :UniteWithCurrentDir -no-split -start-insert file_rec/async:!<CR>
 nnoremap <Leader>b :Unite -no-split buffer<CR>
 " }}}
 
