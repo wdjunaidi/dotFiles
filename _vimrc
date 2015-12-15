@@ -61,7 +61,7 @@ Plugin 'sheerun/vim-polyglot'
 call vundle#end()
 filetype plugin indent on
 
-if $COLORTERM=='gnome-terminal'
+if $COLORTERM=='gnome-terminal' && !has('nvim')
   set term=xterm-256color
 endif
 syntax enable
