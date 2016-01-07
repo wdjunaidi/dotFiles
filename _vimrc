@@ -31,35 +31,32 @@ endif
 set virtualedit=block
 
 set nocompatible
-filetype off
-set runtimepath+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/bundle')
 
 " Feature plugins
-Plugin 'gmarik/Vundle.vim'
-Plugin 'Shougo/vimproc'
-Plugin 'majutsushi/tagbar'
-Plugin 'marijnh/tern_for_vim'
-Plugin 'Shougo/unite.vim'
-Plugin 'moll/vim-node'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tfnico/vim-gradle'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'tpope/vim-surround'
-Plugin 'fholgado/minibufexpl.vim'
-Plugin 'mklabs/grunt'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline.git'
-Plugin 'tpope/vim-commentary'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-endwise'
+Plug 'junegunn/vim-plug'
+Plug 'Shougo/vimproc', { 'do': 'make' }
+Plug 'majutsushi/tagbar'
+Plug 'Shougo/unite.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'fholgado/minibufexpl.vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'tpope/vim-commentary'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-endwise'
+Plug 'bling/vim-airline'
 
 " Language plugins
-Plugin 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
+Plug 'marijnh/tern_for_vim', { 'for': 'javascript' }
+Plug 'moll/vim-node', { 'for': 'javascript' }
+Plug 'mklabs/grunt', { 'for': 'javascript' }
+Plug 'Valloric/YouCompleteMe', { 'for': 'javascript', 'do': './install.py --clang-completer' }
+Plug 'tfnico/vim-gradle', { 'for': ['groovy', 'gradle'] }
 
-call vundle#end()
-filetype plugin indent on
+call plug#end()
 
 if $COLORTERM=='gnome-terminal' && !has('nvim')
   set term=xterm-256color
