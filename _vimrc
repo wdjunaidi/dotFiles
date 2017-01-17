@@ -38,23 +38,28 @@ Plug 'junegunn/vim-plug'
 Plug 'Shougo/vimproc', { 'do': 'make' }
 Plug 'majutsushi/tagbar'
 Plug 'Shougo/unite.vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'fholgado/minibufexpl.vim'
 Plug 'altercation/vim-colors-solarized'
-Plug 'tpope/vim-commentary'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-endwise'
 Plug 'bling/vim-airline'
+Plug 'neomake/neomake'
 
 " Language plugins
 Plug 'sheerun/vim-polyglot'
-Plug 'marijnh/tern_for_vim', { 'for': 'javascript' }
+Plug 'ternjs/tern_for_vim', { 'for': 'javascript' }
 Plug 'moll/vim-node', { 'for': 'javascript' }
 Plug 'mklabs/grunt', { 'for': 'javascript' }
 Plug 'Valloric/YouCompleteMe', { 'for': 'javascript', 'do': './install.py --clang-completer' }
 Plug 'tfnico/vim-gradle', { 'for': ['groovy', 'gradle'] }
+Plug 'c-brenn/phoenix.vim'
+Plug 'slashmili/alchemist.vim'
+let g:alchemist_tag_disable=1
 
 call plug#end()
 
@@ -67,6 +72,7 @@ set background=dark
 colorscheme solarized
 
 autocmd BufNewFile,BufRead * setlocal formatoptions-=cro
+autocmd! BufWritePost * Neomake
 
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
