@@ -1,0 +1,5 @@
+BREW_HOME="$HOME/.linuxbrew"
+export PATH="$BREW_HOME/bin:$PATH"
+export MANPATH="$BREW_HOME/share/man:$MANPATH"
+export INFOPATH="$BREW_HOME/share/info:$INFOPATH"
+export NVM_DIR="/home/wirianto/.nvm"
